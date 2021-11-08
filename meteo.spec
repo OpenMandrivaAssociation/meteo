@@ -2,19 +2,19 @@
 
 Name:           meteo
 Version:        0.9.9.1
-Release:        1%{?dist}
+Release:        1
 Summary:        Forecast application using OpenWeatherMap API
-
+Group:          internet
 License:        GPLv3+
 URL:            https://gitlab.com/bitseater/meteo
-Source0:        %{url}/-/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:        https://gitlab.com/bitseater/meteo/-/archive/%{version}/%{name}-%{version}.tar.bz2
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
-BuildRequires:  libappstream-glib
+BuildRequires:  pkgconfig(appstream-glib)
 BuildRequires:  meson
 BuildRequires:  vala
-
+BuildRequires:  appstream-util
 BuildRequires:  pkgconfig(appindicator3-0.1)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
@@ -42,18 +42,15 @@ Features:
 
 
 %prep
-%autosetup
-
+%autosetup -p1
 
 %build
 %meson
 %meson_build
 
-
 %install
 %meson_install
 %find_lang %{uuid}
-
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{uuid}.appdata.xml
@@ -69,29 +66,3 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{uuid}.desktop
 %{_datadir}/icons/hicolor/*/*/*.svg
 %{_mandir}/man1/*.1*
 %{_metainfodir}/*.appdata.xml
-
-
-%changelog
-* Tue Nov 02 2021 Artem Polishchuk <ego.cordatus@gmail.com> - 0.9.9.1-1
-- chore(update): 0.9.9.1
-
-* Sat Oct 30 2021 Artem Polishchuk <ego.cordatus@gmail.com> - 0.9.9-1
-- chore(update): 0.9.9
-
-* Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.8-5
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
-
-* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.8-4
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
-
-* Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.8-3
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
-
-* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.8-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
-
-* Mon Sep 30 2019 Artem Polishchuk <ego.cordatus@gmail.com> - 0.9.8-1
-- Update to 0.9.8
-
-* Wed Aug 14 2019 Artem Polishchuk <ego.cordatus@gmail.com> - 0.9.7-4
-- Initial package
