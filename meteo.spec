@@ -2,7 +2,7 @@
 
 Name:           meteo
 Version:        0.9.9.1
-Release:        1
+Release:        2
 Summary:        Forecast application using OpenWeatherMap API
 Group:          internet
 License:        GPLv3+
