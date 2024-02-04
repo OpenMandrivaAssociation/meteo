@@ -1,7 +1,7 @@
 %global uuid    com.gitlab.bitseater.%{name}
 
 Name:           meteo
-Version:        0.9.9.2
+Version:        0.9.9.3
 Release:        1
 Summary:        Forecast application using OpenWeatherMap API
 Group:          internet
