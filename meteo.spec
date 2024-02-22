@@ -2,7 +2,7 @@
 
 Name:           meteo
 Version:        0.9.9.3
-Release:        1
+Release:        2
 Summary:        Forecast application using OpenWeatherMap API
 Group:          internet
 License:        GPLv3+
@@ -15,7 +15,7 @@ BuildRequires:  pkgconfig(appstream-glib)
 BuildRequires:  meson
 BuildRequires:  vala
 BuildRequires:  appstream-util
-BuildRequires:  pkgconfig(appindicator3-0.1)
+BuildRequires:  pkgconfig(ayatana-appindicator3-0.1)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(json-glib-1.0)
